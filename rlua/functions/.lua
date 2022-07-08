@@ -53,7 +53,7 @@ F.FromHex = function(Integer)
     end
 end
 
-F.TableRemove = function(Table, Value)
+F.Delete = function(Table, Value)
     table.remove(Table, table.find(Table, Value))
 end
 
