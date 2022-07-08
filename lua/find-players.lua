@@ -65,7 +65,7 @@ FP.Age = function(Option)
                 end
             end
         end
-        return OldestPlayer, AccountAge
+        return {["Player"] = OldestPlayer, ["Age"] = AccountAge}
     end
     if table.find(YoungestAliases, Option:lower()) then
         local AccountAge = math.huge
@@ -78,7 +78,7 @@ FP.Age = function(Option)
                 end
             end
         end
-        return YoungestPlayer, AccountAge
+        return {["Player"] = YoungestPlayer, ["Age"] = AccountAge}
     end
 end
 
@@ -97,7 +97,7 @@ FP.Distance = function(Option)
                 end
             end
         end
-        return FarthestPlayer, Distance
+        return {["Player"] = FarthestPlayer, ["Distance"] = Distance}
     end
     if table.find(NearestAliases, Option:lower()) then
         local Distance = math.huge
@@ -111,7 +111,7 @@ FP.Distance = function(Option)
                 end
             end
         end
-        return NearestPlayer, Distance
+        return {["Player"] = NearestPlayer, ["Distance"] = Distance}
     end
 end
 
