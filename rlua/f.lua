@@ -1,4 +1,4 @@
--- Remade/New Functions
+-- Remade/new functions for scripts
 -- complex#0002 (900187302016471092)
 
 local F = {}
