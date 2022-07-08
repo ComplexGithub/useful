@@ -56,3 +56,5 @@ end
 F.TableRemove = function(Table, Value)
     table.remove(Table, table.find(Table, Value))
 end
+
+return F
