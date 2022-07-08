@@ -1,3 +1,6 @@
+-- Find Players Library
+-- complex#0002 (900187302016471092)
+
 local FP = {}
 
 local LP = game:GetService("Players").LocalPlayer
