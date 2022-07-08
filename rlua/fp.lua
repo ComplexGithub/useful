@@ -1,4 +1,4 @@
--- Find Players Library
+-- Functions to find a player
 -- complex#0002 (900187302016471092)
 
 local FP = {}
