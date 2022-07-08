@@ -15,43 +15,38 @@ F.GetPlayers = function()
     return game:GetService("Players"):GetPlayers()
 end
 
-F.FromHex = function(Integer)
-    if type(Integer) == "string" then
-        if Integer:find("0x") then
-            Integer = tonumber(Integer)
+F.C3 = {
+    Hex = function(Color)
+        assert((type(Color) == "string") or (type(Color) == "number"), "Invalid argument #1 (string/number expected, got " .. type(Color) .. ")")
+        
+        if type(Color) == "string" then
+            Color = tonumber("0x" .. Color:gsub("0x", ""):gsub("#", ""))
 
-            R = ((Integer / (256 ^ 2)) % 256) / 255
-            G = ((Integer / 256) % 256) / 255
-            B = (Integer % 256) / 255
-
-            return Color3.new(R, G, B)
-        elseif Integer:find("#") then
-            Integer = tonumber("0x" .. Integer:gsub("#", ""))
-
-            R = ((Integer / (256 ^ 2)) % 256) / 255
-            G = ((Integer / 256) % 256) / 255
-            B = (Integer % 256) / 255
+            R = ((Color / (256 ^ 2)) % 256) / 255
+            G = ((Color / 256) % 256) / 255
+            B = (Color % 256) / 255
 
             return Color3.new(R, G, B)
-        else
-            Integer = tonumber("0x" .. Integer)
+        elseif type(Color) == "number" then
+            Color = tonumber(Color)
 
-            R = ((Integer / (256 ^ 2)) % 256) / 255
-            G = ((Integer / 256) % 256) / 255
-            B = (Integer % 256) / 255
+            R = ((Color / (256 ^ 2)) % 256) / 255
+            G = ((Color / 256) % 256) / 255
+            B = (Color % 256) / 255
 
             return Color3.new(R, G, B)
         end
-    elseif type(Integer) == "number" then
-        Integer = tonumber(Integer)
-
-        R = ((Integer / (256 ^ 2)) % 256) / 255
-        G = ((Integer / 256) % 256) / 255
-        B = (Integer % 256) / 255
-
+    end,
+    Inverse = function(Color)
+        assert(type(Color) == "userdata", "Invalid argument #1 (userdata expected, got " .. type(Color) .. ")")
+        
+        R = 1 - Color.R
+        G = 1 - Color.G
+        B = 1 - Color.B
+        
         return Color3.new(R, G, B)
     end
-end
+}
 
 F.Delete = function(Table, Value)
     table.remove(Table, table.find(Table, Value))
