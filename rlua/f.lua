@@ -1,4 +1,4 @@
--- "Shortened" Functions Library
+-- Remade/New Functions
 -- complex#0002 (900187302016471092)
 
 local F = {}
