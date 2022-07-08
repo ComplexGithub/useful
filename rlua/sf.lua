@@ -26,6 +26,14 @@ F.Color3 = {
                 B = (Integer % 256) / 255
 
                 return Color3.new(R, G, B)
+            elseif Integer:find("#") then
+                Integer = tonumber("0x" .. Integer:gsub("#", ""))
+            
+                R = ((Integer / (256 ^ 2)) % 256) / 255
+                G = ((Integer / 256) % 256) / 255
+                B = (Integer % 256) / 255
+
+                return Color3.new(R, G, B)
             else
                 Integer = tonumber("0x" .. Integer)
             
