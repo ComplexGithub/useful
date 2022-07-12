@@ -19,33 +19,27 @@ end
 Generate.Letters = function(Length)
     local CharacterSet = ReturnCharSet(65, 90, ReturnCharSet(97, 122))
     local String = ""
-
     repeat
         String = String .. CharacterSet[Random.new():NextInteger(1, #CharacterSet)]
     until string.len(String) == Length
-    
     return String
 end
 
 Generate.Numbers = function(Length)
     local CharacterSet = ReturnCharSet(48, 57)
     local String = ""
-
     repeat
         String = String .. CharacterSet[Random.new():NextInteger(1, #CharacterSet)]
     until string.len(String) == Length
-
     return String
 end
 
 Generate.Characters = function(Length)
     local CharacterSet = ReturnCharSet(65, 90, ReturnCharSet(97, 122, ReturnCharSet(48, 57)))
     local String = ""
-    
     repeat
         String = String .. CharacterSet[Random.new():NextInteger(1, #CharacterSet)]
     until string.len(String) == Length
-    
     return String
 end
 
@@ -53,7 +47,6 @@ Generate.Symbols = function(Length, PunctuationIncluded)
     local CharacterSet = ReturnCharSet(32, 47, ReturnCharSet(58, 64, ReturnCharSet(91, 96, ReturnCharSet(123, 126))))
     local PunctuationSet = {".", ",", "?", ";", "!", ":", "'", "(", ")", "[", "]", '"', "-", "/", "@", "{", "}", "*"}
     local String = ""
-
     if PunctuationIncluded then
         repeat
             String = String .. CharacterSet[Random.new():NextInteger(1, #CharacterSet)]
@@ -68,18 +61,15 @@ Generate.Symbols = function(Length, PunctuationIncluded)
             end
         until string.len(String) == Length
     end
-
     return String
 end
 
 Generate.AllCharacters = function(Length)
     local CharacterSet = ReturnCharSet(32, 126)
     local String = ""
-    
     repeat
         String = String .. CharacterSet[Random.new():NextInteger(1, #CharacterSet)]
     until string.len(String) == Length
-
     return String
 end
 
