@@ -52,4 +52,10 @@ F.TableDelete = function(Table, Value)
     table.remove(Table, table.find(Table, Value))
 end
 
+F.Tween = function(Object, TweenInfoData, PropertyData)
+    local TI = TweenInfo.new(unpack(TweenInfoData))
+    local Tween = game:GetService("TweenService"):Create(Object, TI, PropertyData)
+    Tween:Play()
+end
+
 return F
