@@ -48,7 +48,7 @@ F.C3 = {
     end
 }
 
-F.Delete = function(Table, Value)
+F.TableDelete = function(Table, Value)
     table.remove(Table, table.find(Table, Value))
 end
 
