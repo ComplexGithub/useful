@@ -49,10 +49,16 @@ F.C3 = {
 }
 
 F.TableDelete = function(Table, Value)
+    assert(type(Table) == "table", "Invalid argument #1 (table expected, got " .. type(Table) .. ")")
+
     table.remove(Table, table.find(Table, Value))
 end
 
 F.Tween = function(Object, TweenInfoData, PropertyData)
+    assert(type(Object) == "userdata", "Invalid argument #1 (userdata expected, got " .. type(Object) .. ")")
+    assert(type(TweenInfoData) == "userdata", "Invalid argument #2 (table expected, got " .. type(TweenInfoData) .. ")")
+    assert(type(PropertyData) == "userdata", "Invalid argument #3 (table expected, got " .. type(PropertyData) .. ")")
+    
     local TI = TweenInfo.new(unpack(TweenInfoData))
     local Tween = game:GetService("TweenService"):Create(Object, TI, PropertyData)
     Tween:Play()
