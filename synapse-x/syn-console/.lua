@@ -1,5 +1,6 @@
 -- Synapse X Console functions
 -- complex#0002 (900187302016471092)
+-- Console colors: [LINK]
 
 function rconsolestructure(MessageColor, Type, TypeColor)
     rconsoleprint("@@" .. MessageColor:gsub(" ", "_"):upper() .. "@@")
