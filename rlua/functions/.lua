@@ -62,21 +62,11 @@ function F:Tween(Object, TweenInfoData, PropertyData)
     Tween:Play()
 end
 
-function F:Create(Instance, Parent, Properties)
-    if type(Parent) == "table" then
-        Parent, Properties = Properties, Parent
-    end
-    
+function F:Create(Instance, Properties)
     assert(type(Instance) == "string", "Invalid argument #1 (string expected, got " .. type(Instance) .. ")")
     assert(type(Properties) == "table", "Invalid argument #2/3 (table expected, got " .. type(Properties) .. ")")
     
-    local CreatedInstance
-    if Parent then
-        assert(type(Parent) == "userdata", "Invalid argument #2 (userdata expected, got " .. type(Parent) .. ")")
-        CreatedInstance = Instance.new(Instance, Parent)
-    else
-        CreatedInstance = Instance.new(Instance)
-    end
+    local CreatedInstance = Instance.new(Instance)
     
     for Property, Value in pairs(Properties) do
         assert(CreatedInstance[Property], Property .. " is not a valid property of the created Instance")
