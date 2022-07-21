@@ -22,8 +22,8 @@ end
 
 function F:Tween(Object, TweenInfoData, PropertyData)
     assert(type(Object) == "userdata", "Invalid argument #1 (userdata expected, got " .. type(Object) .. ")")
-    assert(type(TweenInfoData) == "userdata", "Invalid argument #2 (table expected, got " .. type(TweenInfoData) .. ")")
-    assert(type(PropertyData) == "userdata", "Invalid argument #3 (table expected, got " .. type(PropertyData) .. ")")
+    assert(type(TweenInfoData) == "table", "Invalid argument #2 (table expected, got " .. type(TweenInfoData) .. ")")
+    assert(type(PropertyData) == "table", "Invalid argument #3 (table expected, got " .. type(PropertyData) .. ")")
     
     local TI = TweenInfo.new(unpack(TweenInfoData))
     local Tween = game:GetService("TweenService"):Create(Object, TI, PropertyData)
